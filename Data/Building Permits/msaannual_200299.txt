@@ -1,0 +1,431 @@
+ Table 3u. New Privately Owned Housing Units Authorized
+           Unadjusted Units by Metropolitan Area 
+
+           Annual 2002
+
+                                                                         Num of
+                                                                         Struc-
+                                                                          tures
+                                                                           With
+                                                        3 and 4 5 Units 5 Units
+                                  Total  1 Unit 2 Units   Units or More or More
+
+
+ Abilene  TX MSA                    181     153      10      18       0       0 
+ Albany  GA MSA                     600     544      56       0       0       0 
+ Albany-Schenectady-Troy  NY                                                    
+  MSA                              3294    2707      36      76     475      47 
+ Albuquerque  NM MSA               7022    5803       0      98    1121      68 
+ Alexandria  LA MSA                 534     432       0       0     102       3 
+ Allentown-Bethlehem-Easton                                                     
+  PA MSA                           3686    3335      14      72     265       9 
+ Altoona  PA MSA                    321     235       6      20      60       1 
+ Amarillo  TX MSA                   910     722       4       0     184       1 
+ Anchorage  AK MSA                 1988     923     678     120     267      28 
+ Anniston  AL MSA                   233     215       2       0      16       3 
+ Appleton-Oshkosh-Neenah  WI                                                    
+  MSA                              3538    2160     202      42    1134      98 
+ Asheville  NC MSA                 2277    1449     104     132     592      29 
+ Athens  GA MSA                    2262    1317      94       0     851      41 
+ Atlanta  GA MSA                  66551   50151     206     258   15936     531 
+ Auburn-Opelika  AL MSA            1316     421      88      51     756      69 
+ Augusta-Aiken  GA-SC MSA          3499    2892      20      20     567      29 
+ Austin-San Marcos  TX MSA        17201   11041     346     244    5570     264 
+ Bakersfield  CA MSA               4509    4496       6       7       0       0 
+ Bangor  ME MSA                     367     313      14      23      17       1 
+ Barnstable-Yarmouth  MA MSA        932     883       2      39       8       1 
+ Baton Rouge  LA MSA               4002    3294       2      18     688      51 
+ Beaumont-Port Arthur  TX MSA       897     803       4       0      90      17 
+ Bellingham  WA MSA                1537    1107      44      55     331      30 
+ Benton Harbor  MI MSA              614     608       2       4       0       0 
+ Billings  MT MSA                   698     576      12       3     107       9 
+ Biloxi-Gulfport-Pascagoula                                                     
+  MS MSA                           2338    1996      22      12     308       9 
+ Binghamton  NY MSA                 390     331       2       0      57       1 
+ Birmingham  AL MSA                5177    4918       4      28     227      20 
+ Bismarck  ND MSA                   864     587       8      47     222      12 
+ Bloomington  IN MSA               1042     589     200      22     231      17 
+ Bloomington-Normal  IL MSA        1698     942      24      18     714      52 
+ Boise City  ID MSA                6754    5827     130     223     574      45 
+ Boston-Worcester-Lawrence                                                      
+  MA-NH-ME-CT CMSA                17853   12852     692     543    3766     212 
+   Boston  MA-NH PMSA              7066    4730     390     203    1743      71 
+   Brockton  MA PMSA               1043     841      10       0     192       8 
+   Fitchburg-Leominster  MA PMS     476     472       4       0       0       0 
+   Lawrence  MA-NH PMSA            1488    1032      68     103     285      25 
+   Lowell  MA-NH PMSA               869     596      34      70     169       8 
+   Manchester  NH PMSA             1472     775      28      18     651      38 
+   Nashua  NH PMSA                  959     693      22      43     201      30 
+   New Bedford  MA PMSA             502     458       2       0      42       3 
+   Portsmouth-Rochester  NH-ME                                                  
+    PMSA                           1707    1183     110      33     381      20 
+   Worcester  MA-CT PMSA           2271    2072      24      73     102       9 
+ Brownsville-Harlingen-San                                                      
+  Benito  TX MSA                   3917    3178      66     143     530      33 
+ Bryan-College Station  TX MSA     1807     967     182      27     631      28 
+ Buffalo-Niagara Falls  NY MSA     2960    2481      64      62     353      23 
+ Burlington  VT MSA                 855     433      50      29     343      17 
+ Canton-Massillon  OH MSA          1400    1235      44       6     115       5 
+ Casper  WY MSA                     150     140       0       0      10       2 
+ Cedar Rapids  IA MSA              1661     931      66      68     596      29 
+ Champaign-Urbana  IL MSA          1480     838      24      28     590      39 
+ Charleston-North Charleston                                                    
+   SC MSA                          5981    4984      30     113     854      80 
+ Charleston  WV MSA                 410     297      14      12      87      14 
+ Charlotte-Gastonia-Rock                                                        
+  Hill  NC-SC MSA                 20682   17311     150     190    3031     194 
+ Charlottesville  VA MSA           2516    1331      20      27    1138      52 
+ Chattanooga  TN-GA MSA            2923    2511     106      59     247      24 
+ Cheyenne  WY MSA                   478     446      12       0      20       3 
+ Chicago-Gary-Kenosha  IL-IN-                                                   
+  WI CMSA                         49358   33971     804    1825   12758     772 
+   Chicago  IL PMSA               44619   30410     538    1586   12085     717 
+   Gary  IN PMSA                   3110    2369     212     178     351      22 
+   Kankakee  IL PMSA                468     379      22      57      10       2 
+   Kenosha  WI PMSA                1161     813      32       4     312      31 
+ Chico-Paradise  CA MSA            1186    1152       8      26       0       0 
+ Cincinnati-Hamilton  OH-KY-                                                    
+  IN CMSA                         12703   10417     110     259    1917     182 
+   Cincinnati  OH-KY-IN PMSA      10207    8315      68     195    1629     155 
+   Hamilton-Middletown  OH PMSA    2496    2102      42      64     288      27 
+ Clarksville-Hopkinsville                                                       
+  TN-KY MSA                        1668    1296      84      48     240      30 
+ Cleveland-Akron  OH CMSA          9878    8791     102     327     658      73 
+   Akron  OH PMSA                  2634    2182      40      91     321      32 
+   Cleveland-Lorain-Elyria  OH                                                  
+    PMSA                           7244    6609      62     236     337      41 
+ Colorado Springs  CO MSA          6827    4999      32     100    1696     116 
+ Columbia  MO MSA                  1786    1131      92      67     496      45 
+ Columbia  SC MSA                  4649    4285      16      18     330      18 
+ Columbus  GA-AL MSA               1437    1160      78     131      68       8 
+ Columbus  OH MSA                 16537   10348     218     678    5293     418 
+ Corpus Christi  TX MSA            1892    1333     176     225     158      11 
+ Corvallis OR MSA                   369     357      12       0       0       0 
+ Cumberland  MD-WV MSA              208     196       2       0      10       1 
+ Dallas-Fort Worth  TX CMSA       51621   38309     230     934   12148     632 
+   Dallas  TX PMSA                34496   24944     134     635    8783     408 
+   Fort Worth-Arlington  TX PMS   17125   13365      96     299    3365     224 
+ Danville  VA MSA                   262     244       0       4      14       2 
+ Davenport-Moline-Rock                                                          
+  Island  IA-IL MSA                1262     885      34      52     291      19 
+ Dayton-Springfield  OH MSA        3361    2632     100     181     448      32 
+ Daytona Beach  FL MSA             7259    6231     212      27     789      33 
+ Decatur  Al MSA                    409     409       0       0       0       0 
+ Decatur  IL MSA                    393     174       0       4     215       6 
+ Denver-Boulder-Greeley  CO                                                     
+  CMSA                            28657   19290     328     478    8561     480 
+   Boulder-Longmont  CO PMSA       2599    1866       6      43     684      38 
+   Denver  CO PMSA                21647   13603     306     360    7378     401 
+   Greeley  CO PMSA                4411    3821      16      75     499      41 
+ Des Moines  IA MSA                4713    3308     134     103    1168      97 
+ Detroit-Ann Arbor-Flint  MI                                                    
+  CMSA                            25251   20697     434     488    3632     297 
+   Ann Arbor  MI PMSA              5069    4549      30      18     472      34 
+   Detroit  MI PMSA               17779   14248     384     443    2704     232 
+   Flint  MI PMSA                  2403    1900      20      27     456      31 
+ Dothan  AL MSA                     407     407       0       0       0       0 
+ Dover  DE MSA                     1452    1442      10       0       0       0 
+ Dubuque  IA MSA                    497     384      46       6      61       5 
+ Duluth-Superior  MN-WI MSA         840     822      14       4       0       0 
+ Eau Claire  WI MSA                1370     846      82     130     312      19 
+ El Paso  TX MSA                   3710    3459      38      94     119      21 
+ Elkhart-Goshen  IN MSA            1606     989      14      49     554      36 
+ Elmira  NY MSA                     141     109       2       0      30       2 
+ Enid  OK MSA                       167      84      30       6      47       6 
+ Erie  PA MSA                       643     593       4      40       6       1 
+ Eugene-Springfield  OR MSA        1625    1400      66      15     144      14 
+ Evansville-Henderson  IN-KY                                                    
+  MSA                              1740    1360      16      68     296      18 
+ Fargo-Moorhead  ND-MN MSA         2159    1062      80      71     946      39 
+ Fayetteville  NC MSA              2369    1402      10       4     953      76 
+ Fayetteville-Springdale-                                                       
+  Rogers  AR MSA                   3949    2376      96     267    1210     111 
+ Flagstaff  AZ-UT MSA               981     943      16      16       6       1 
+ Florence  AL MSA                   326     213       4       3     106      11 
+ Florence  SC MSA                   507     473      10       0      24       3 
+ Fort Collins-Loveland  CO MSA     3036    2530      56      54     396      54 
+ Fort Myers-Cape Coral  FL MSA    11146    7149     684     561    2752     215 
+ Fort Pierce-Port St. Lucie                                                     
+  FL MSA                           6032    4744      46      71    1171      64 
+ Fort Smith  AR-OK MSA              914     570      94      27     223       2 
+ Fort Walton Beach  FL MSA         1936    1438      10       4     484      18 
+ Fort Wayne  IN MSA                3417    2759      46       8     604      50 
+ Fresno  CA MSA                    4818    4564      28      66     160       6 
+ Gadsden  AL MSA                    328     254       0       0      74       3 
+ Gainesville  FL MSA               1791    1023       0       7     761      87 
+ Glens Falls  NY MSA                736     610      10      44      72       9 
+ Goldsboro  NC MSA                  433     425       0       8       0       0 
+ Grand Forks  ND-MN MSA             371     229      24       0     118       3 
+ Grand Junction  CO MSA            1370    1287      16      27      40       3 
+ Grand Rapids-Muskegon-                                                         
+  Holland  MI MSA                  7304    5788     160     143    1213     105 
+ Great Falls  MT MSA                120     112       0       8       0       0 
+ Green Bay  WI MSA                 2137    1259     128      14     736      53 
+ Greensboro--Winston-Salem--                                                    
+  High Point  NC MSA              11211    8917      92     133    2069     163 
+ Greenville  NC MSA                1837     811     188       0     838      76 
+ Greenville-Spartanburg-                                                        
+  Anderson  SC MSA                 7850    6766     118      72     894      58 
+ Harrisburg-Lebanon-Carlisle                                                    
+   PA MSA                          3196    3014      16      17     149       8 
+ Hartford  CT MSA                  3945    3267      90      17     571      70 
+ Hattiesburg  MS MSA                449     131      16      38     264      25 
+ Hickory-Morganton-Lenoir                                                       
+  NC MSA                           1875    1706      38       0     131      15 
+ Honolulu  HI MSA                  2673    1964      12      67     630      41 
+ Houma  LA MSA                      794     760      28       0       6       1 
+ Houston-Galveston-Brazoria                                                     
+  TX CMSA                         47037   34636     152     867   11382     645 
+   Brazoria  TX PMSA               3081    2738       0       0     343      16 
+   Galveston-Texas City  TX PMS    2739    2687       6       4      42       7 
+   Houston  TX PMSA               41217   29211     146     863   10997     622 
+ Huntington-Ashland  WV-KY-                                                     
+  OH MSA                            220     177      20      23       0       0 
+ Huntsville  AL MSA                1659    1199       8      28     424      33 
+ Indianapolis  IN MSA             16643   13143     368     214    2918     231 
+ Iowa City  IA MSA                 1283     745      10      37     491      49 
+ Jackson  MI MSA                    928     653      22      29     224      11 
+ Jackson  MS MSA                   3397    2449       0      12     936      74 
+ Jackson  TN MSA                    684     610      20       4      50       5 
+ Jacksonville  FL MSA             14217   10847      16      60    3294     176 
+ Jacksonville  NC MSA              1042     980      18      44       0       0 
+ Jamestown  NY MSA                  292     260      28       4       0       0 
+ Janesville-Beloit  WI MSA          972     577      72      53     270      25 
+ Johnson City-Kingsport-                                                        
+  Bristol  TN-VA MSA               2053    1753       8       0     292      30 
+ Johnstown  PA MSA                  437     395      14       4      24       4 
+ Jonesboro  AR MSA                  492     458      10      24       0       0 
+ Joplin  MO MSA                     476     443      14       7      12       1 
+ Kalamazoo-Battle Creek  MI                                                     
+  MSA                              2172    1776      14      36     346      22 
+ Kansas City  MO-KS MSA           13809   10741     572     734    1762     116 
+ Killeen-Temple  TX MSA            2945    1834     370     548     193       4 
+ Knoxville  TN MSA                 4768    3663     172     195     738      51 
+ Kokomo  IN MSA                     500     432      22       0      46       3 
+ La Crosse  WI-MN MSA               624     494      36       4      90       8 
+ Lafayette  LA MSA                 2113    1624       4      15     470      20 
+ Lafayette  IN MSA                 1379     942     112       4     321      41 
+ Lake Charles  LA MSA               929     857      36       0      36       4 
+ Lakeland-Winter Haven  FL MSA     4972    4422      18       4     528      28 
+ Lancaster  PA MSA                 2548    2077      58      15     398      22 
+ Lansing-East Lansing  MI MSA      2406    1768      18       4     616      47 
+ Laredo  TX MSA                    1805    1439      12      62     292      22 
+ Las Cruces  NM MSA                1213     906       4      46     257      22 
+ Las Vegas  NV-AZ MSA             31951   24702     198     207    6844     620 
+ Lawrence  KS MSA                   948     436     238       3     271      12 
+ Lawton  OK MSA                     162     142       2       0      18       3 
+ Lewiston-Auburn  ME MSA            278     263      12       3       0       0 
+ Lexington  KY MSA                 4478    3919     122     122     315      30 
+ Lima  OH MSA                       379     363      10       6       0       0 
+ Lincoln  NE MSA                   1902    1534      72       0     296      22 
+ Little Rock-North Little                                                       
+  Rock  AR MSA                     4503    2731      48      76    1648     155 
+ Longview-Marshall  TX MSA          348     348       0       0       0       0 
+ Los Angeles-Riverside-                                                         
+  Orange County  CA CMSA          63249   47361     608     644   14636     962 
+   Los Angeles-Long Beach  CA                                                   
+    PMSA                          16454    8280     264     216    7694     551 
+   Orange County  CA PMSA         11796    6794     172     233    4597     193 
+   Riverside-San Bernardino                                                     
+    CA PMSA                       32474   30038     158     165    2113     202 
+   Ventura  CA PMSA                2525    2249      14      30     232      16 
+ Louisville  KY-IN MSA             6726    5460      44     119    1103     105 
+ Lubbock  TX MSA                   1873    1347     104      56     366      27 
+ Lynchburg  VA MSA                 1391    1136      34      48     173       9 
+ Macon  GA MSA                     2400    2292      34      28      46       7 
+ Madison  WI MSA                   4335    2472     222     292    1349      68 
+ Mansfield  OH MSA                  528     439      64      25       0       0 
+ McAllen-Edinburg-Mission                                                       
+  TX MSA                           7477    6418     102     582     375      40 
+ Medford-Ashland  OR MSA           1548    1439      22      63      24       3 
+ Melbourne-Titusville-Palm                                                      
+  Bay  FL MSA                      6622    4956      24      33    1609     102 
+ Memphis  TN-AR-MS MSA             8674    7078      14      80    1502      76 
+ Merced  CA MSA                    1753    1674       0      79       0       0 
+ Miami-Fort Lauderdale  FL                                                      
+  CMSA                            26634   12079     276     264   14015     458 
+   Fort Lauderdale  FL PMSA       12028    5705      98     106    6119     221 
+   Miami  FL PMSA                 14606    6374     178     158    7896     237 
+ Milwaukee-Racine  WI CMSA         6887    4098     416     225    2148     103 
+   Milwaukee-Waukesha  WI PMSA     5936    3456     360     212    1908      93 
+   Racine  WI PMSA                  951     642      56      13     240      10 
+ Minneapolis-St. Paul  MN-WI                                                    
+  MSA                             25751   17579     378     672    7122     307 
+ Missoula  MT MSA                  1127     396      98      63     570      44 
+ Mobile  AL MSA                    3934    3649      16      22     247      16 
+ Modesto  CA MSA                   3173    2991      66      57      59      11 
+ Monroe  LA MSA                     485     441       0      44       0       0 
+ Montgomery  AL MSA                1609    1569       0       0      40       6 
+ Muncie  IN MSA                     313     293      12       0       8       1 
+ Myrtle Beach  SC MSA              4017    2432      48      38    1499      80 
+ Naples  FL MSA                    7282    4173      96     931    2082     148 
+ Nashville  TN MSA                11618   10553     208      42     815      72 
+ New London-Norwich  CT-RI MSA     1070     953      24       4      89       4 
+ New Orleans  LA MSA               5414    4357     158      22     877      30 
+ New York-Northern New                                                          
+  Jersey-Long Island  NY-NJ-                                                    
+  CT-PA CMSA                      56017   28825    5950    3956   17286     695 
+   Bergen-Passaic  NJ PMSA         2460    1586     226     179     469      17 
+   Bridgeport  CT PMSA              858     804      30      24       0       0 
+   Danbury  CT PMSA                 893     867       4       3      19       2 
+   Dutchess County  NY PMSA        1130     909       4      50     167      19 
+   Jersey City  NJ PMSA            1534      99     364     118     953      37 
+   Middlesex-Somerset-                                                          
+    Hunterdon  NJ PMSA             4131    3085      22      52     972      53 
+   Monmouth-Ocean  NJ PMSA         5906    5589      20      22     275      18 
+   Nassau-Suffolk  NY PMSA         5351    4203     234     112     802     100 
+   New Haven-Meriden  CT PMSA      1014     925      16       0      73       5 
+   New York  NY PMSA              21423    2902    4010    2812   11699     345 
+   Newark  NJ PMSA                 5739    3259     934     272    1274      61 
+   Newburgh  NY-PA PMSA            2852    2450      10     305      87       9 
+   Stamford-Norwalk  CT PMSA        696     485      20       7     184       8 
+   Trenton  NJ PMSA                1428    1126      52       0     250      19 
+   Waterbury  CT PMSA               602     536       4       0      62       2 
+ Norfolk-Virginia Beach-                                                        
+  Newport News  VA-NC MSA         10159    7632     100      72    2355     101 
+ Ocala  FL MSA                     6161    5384      30      27     720      60 
+ Odessa-Midland  TX MSA             427     355       4       0      68       1 
+ Oklahoma City  OK MSA             6143    5730      62      19     332      23 
+ Omaha  NE-IA MSA                  5703    4403      56      12    1232      59 
+ Orlando  FL MSA                  26208   17306     164     126    8612     487 
+ Owensboro  KY MSA                 1073    1035      12      26       0       0 
+ Panama City  FL MSA               1616    1111      30      14     461      11 
+ Parkersburg-Marietta  WV-OH                                                    
+  MSA                               224     198       6      20       0       0 
+ Pensacola  FL MSA                 3213    2832      28       9     344      15 
+ Peoria-Pekin  IL MSA              1328    1201      86      28      13       2 
+ Philadelphia-Wilmington-                                                       
+  Atlantic City  PA-NJ-DE-MD                                                    
+  CMSA                            22746   19311     614     327    2494     221 
+   Atlantic-Cape May  NJ PMSA      3442    2665     476      53     248      22 
+   Philadelphia  PA-NJ PMSA       15771   13358     120     243    2050     165 
+   Vineland-Millville-                                                          
+    Bridgeton  NJ PMSA              310     297      10       3       0       0 
+   Wilmington-Newark  DE-MD PMS    3223    2991       8      28     196      34 
+ Phoenix-Mesa  AZ MSA             47899   40002     188     366    7343     499 
+ Pine Bluff  AR MSA                 147     115      28       4       0       0 
+ Pittsburgh  PA MSA                6869    5160     136     240    1333     105 
+ Pittsfield  MA MSA                 164     162       2       0       0       0 
+ Pocatello  ID MSA                  346     301      12       8      25       1 
+ Portland  ME MSA                  1560    1254      28      74     204      15 
+ Portland-Salem  OR-WA CMSA       16291   11974     448     415    3454     256 
+   Portland-Vancouver  OR-WA                                                    
+    PMSA                          14331   10422     372     377    3160     230 
+   Salem  OR PMSA                  1960    1552      76      38     294      26 
+ Providence-Fall River-                                                         
+  Warwick  RI-MA MSA               3220    2486     118     139     477      29 
+ Provo-Orem  UT MSA                3725    2920      72      96     637      55 
+ Pueblo  CO MSA                    1303    1075     192      36       0       0 
+ Punta Gorda  FL MSA               1992    1589      58     221     124      10 
+ Raleigh-Durham-Chapel Hill                                                     
+  NC MSA                          16158   13911     308     152    1787     100 
+ Rapid City  SD MSA                 822     568      12      16     226      15 
+ Reading  PA MSA                   2121    1754      24      35     308      19 
+ Redding  CA MSA                   1341    1160       2      88      91       2 
+ Reno  NV MSA                      4691    3776       8      51     856      83 
+ Richland-Kennewick-Pasco                                                       
+  WA MSA                           2247    1893      42      27     285      20 
+ Richmond-Petersburg  VA MSA       8650    6887      10      39    1714     107 
+ Roanoke  VA MSA                   1060     977      18       0      65       8 
+ Rochester  MN MSA                 1532    1279       0       8     245      15 
+ Rochester  NY MSA                 3091    2554      66      68     403      40 
+ Rockford  IL MSA                  2245    1794     110     288      53       8 
+ Rocky Mount  NC MSA                912     645     138      91      38       3 
+ Sacramento-Yolo  CA CMSA         22099   17614      86     217    4182     317 
+   Sacramento  CA PMSA            20690   16407      80     116    4087     307 
+   Yolo  CA PMSA                   1409    1207       6     101      95      10 
+ Saginaw-Bay City-Midland                                                       
+  MI MSA                           1229    1196      18       8       7       1 
+ St. Cloud  MN MSA                 1848    1474      18      68     288      21 
+ St. Joseph  MO MSA                 272     226      46       0       0       0 
+ St. Louis  MO-IL MSA             14023   11002     654     378    1989     121 
+ Salinas  CA MSA                   1222    1054      24      16     128       4 
+ Salt Lake City-Ogden  UT MSA      9530    7546     146     422    1416      87 
+ San Angelo  TX MSA                 251     251       0       0       0       0 
+ San Antonio  TX MSA              12772   10051     136      79    2506     181 
+ San Diego  CA MSA                13684    8880     144     494    4166     146 
+ San Francisco-Oakland-San                                                      
+  Jose  CA CMSA                   23031   14929     298     366    7438     306 
+   Oakland  CA PMSA                9319    7572      30      44    1673      64 
+   San Francisco  CA PMSA          3222    1082     136     107    1897      62 
+   San Jose  CA PMSA               4477    2097      22     147    2211      87 
+   Santa Cruz-Watsonville  CA                                                   
+    PMSA                            608     412       4       6     186       6 
+   Santa Rosa  CA PMSA             1928    1350      80      47     451      40 
+   Vallejo-Fairfield-Napa  CA                                                   
+    PMSA                           3477    2416      26      15    1020      47 
+ San Luis Obispo-Atascadero-                                                    
+  Paso Robles  CA MSA              1993    1690      26      49     228      14 
+ Santa Barbara-Santa Maria-                                                     
+  Lompoc  CA MSA                   1696     953      30     161     552      66 
+ Santa Fe  NM MSA                   767     739       2       4      22       4 
+ Sarasota-Bradenton  FL MSA       10186    6903      22     279    2982     168 
+ Savannah  GA MSA                  2691    1980      22      17     672      48 
+ Scranton--Wilkes-Barre--                                                       
+  Hazleton  PA MSA                 1735    1460      62     118      95       6 
+ Seattle-Tacoma-Bremerton                                                       
+  WA CMSA                         24521   17619     714     499    5689     318 
+   Bremerton  WA PMSA              1229    1135      14      22      58       6 
+   Olympia  WA PMSA                1835    1623      44     110      58       9 
+   Seattle-Bellevue-Everett                                                     
+    WA PMSA                       15990   10140     472     305    5073     251 
+   Tacoma  WA PMSA                 5467    4721     184      62     500      52 
+ Sharon  PA MSA                     461     421       8      32       0       0 
+ Sheboygan  WI MSA                  680     405      84       8     183      11 
+ Sherman-Denison  TX MSA            356     340      16       0       0       0 
+ Shreveport-Bossier City  LA                                                    
+  MSA                              1442    1218       0       0     224      28 
+ Sioux City  IA-NE MSA              271     256      12       3       0       0 
+ Sioux Falls  SD MSA               1999    1569       4      60     366      31 
+ South Bend  IN MSA                1181     783       6       0     392      30 
+ Spokane  WA MSA                   2066    1493      28      11     534      47 
+ Springfield  IL MSA                930     674     136       4     116       7 
+ Springfield  MO MSA               3419    2319     118      16     966      58 
+ Springfield  MA MSA               1293    1121      82      32      58       9 
+ State College  PA MSA              995     877       0       7     111       3 
+ Steubenville-Weirton  OH-WV                                                    
+  MSA                               187      84       4       0      99       2 
+ Stockton-Lodi  CA MSA             6143    5654       6       0     483      32 
+ Sumter  SC MSA                     404     330      54       0      20       4 
+ Syracuse  NY MSA                  2083    1742      10      40     291      34 
+ Tallahassee  FL MSA               2824    1616     158      34    1016      81 
+ Tampa-St. Petersburg-                                                          
+  Clearwater  FL MSA              23542   17546     808     177    5011     355 
+ Terre Haute  IN MSA                385     368      14       3       0       0 
+ Texarkana  TX-Texarkana  AR                                                    
+  MSA                               388     224      20       0     144      12 
+ Toledo  OH MSA                    2393    1860     130      45     358      39 
+ Topeka  KS MSA                    1077     669      22      54     332      14 
+ Tucson  AZ MSA                    7147    6114     146      33     854      47 
+ Tulsa  OK MSA                     4506    3793      68      84     561      22 
+ Tuscaloosa  AL MSA                1300     634       0       0     666      39 
+ Tyler  TX MSA                      631     548       0       6      77      12 
+ Utica-Rome  NY MSA                 474     470       0       4       0       0 
+ Victoria  TX MSA                   212     212       0       0       0       0 
+ Visalia-Tulare-Porterville                                                     
+  CA MSA                           1993    1832      22      79      60       1 
+ Waco  TX MSA                       793     526      38      10     219       7 
+ Washington-Baltimore  DC-MD-                                                   
+  VA-WV CMSA                      52951   40331     352      51   12217     384 
+   Baltimore  MD PMSA             10991    9351      16      12    1612      65 
+   Hagerstown  MD PMSA             1235     978      98       0     159      12 
+   Washington  DC-MD-VA-WV PMSA   40725   30002     238      39   10446     307 
+ Waterloo-Cedar Falls  IA MSA       466     255      56      11     144      13 
+ Wausau  WI MSA                     922     820      72       3      27       3 
+ West Palm Beach-Boca Raton                                                     
+  FL MSA                          12960    9437     110     103    3310     182 
+ Wheeling  WV-OH MSA                 44      42       2       0       0       0 
+ Wichita  KS MSA                   3178    2817      96      26     239      14 
+ Wichita Falls  TX MSA              490     256      10      12     212       7 
+ Williamsport  PA MSA               355     321       2       4      28       2 
+ Wilmington  NC MSA                5074    4290      26      85     673      50 
+ Yakima  WA MSA                     534     366      88      51      29       4 
+ York  PA MSA                      2956    2423     148      29     356      26 
+ Youngstown-Warren  OH MSA         1263    1086     120      19      38       5 
+ Yuba City  CA MSA                 1041    1033       8       0       0       0 
+ Yuma  AZ MSA                      1726    1563      10      64      89       6 
+
+
+ * - Not all permit offices in metropolitan area are
+     requested to report monthly.  No estimates are made
+     for those annual reporters.
