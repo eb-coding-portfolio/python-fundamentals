@@ -5,9 +5,23 @@ from scipy.stats import zscore
 
 
 file_path = r'C:\Users\Eric C. Balduf\OneDrive\Documents\my-local-repo\python-fundamentals\Data\Redfin\redfin_metro_market_tracker.tsv000'
+second_file_path = r'C:\Users\Eric C. Balduf\OneDrive\Documents\my-local-repo\python-fundamentals\Data\Population\cbsa-est2022.csv'
 excel_path = r'C:\Users\Eric C. Balduf\OneDrive\Documents\\'
 
+#changing the encoding of the file so I can read it into pandas
+with open(second_file_path, 'r', encoding='cp1252') as file:
+    content = file.read()
+
+with open(second_file_path, 'w', encoding='utf-8') as file:
+    file.write(content)
+
+
 df_metro = pd.read_csv(file_path, delimiter='\t')
+df_pop_2022 = pd.read_csv(second_file_path)
+df_pop_2022_filtered = df_pop_2022.copy()
+df_pop_2022_filtered = df_pop_2022_filtered[df_pop_2022_filtered['LSAD'] == 'Metropolitan Statistical Area']
+print(len(df_pop_2022_filtered))
+
 
 df_metro_ex_all_res = df_metro[df_metro['property_type'] != 'All Residential']
 
@@ -16,7 +30,6 @@ df_metro_ex_all_res = df_metro[df_metro['property_type'] != 'All Residential']
 
 summary_stats = df_metro.describe().round(2)
 
-#print(summary_stats)
 
 desired_stats = summary_stats.loc[['min', '25%', '50%', '75%', 'max']]
 
@@ -85,10 +98,19 @@ plt.show()
 plt.title('Correlation Matrix')
 
 #for all categorical variables, plot a bar chart
-##NEED WORK
+
+for column in df_metro_ex_all_res.columns:
+    if df_metro_ex_all_res[column].dtype != 'float64' and  df_metro_ex_all_res[column].dtype != 'int64':
+        plt.figure()
+        df_metro_ex_all_res[column].value_counts().plot(kind='bar')
+        plt.title(column)
+        plt.show()
+
+
 
 #Plot a scatter plot
 sns.scatterplot(df_metro_ex_all_res, x='inventory', y='median_sale_price', hue="property_type")
+plt.ticklabel_format(style='plain', axis='y')
 plt.title('Scatter Plot Inventory vs. Median Sale Price')
 plt.show()
 
@@ -102,8 +124,12 @@ df_metro_ex_all_res_copy['inventory_normalized'] = zscore(df_metro_ex_all_res_co
 df_metro_ex_all_res_copy['median_sale_price_normalized'] = zscore(df_metro_ex_all_res_copy['median_sale_price'].dropna())
 
 #If there are any free text fields, note them for future exploration
+
 #load a second data set and find a way to join it to another dataset
 
+merged_df = pd.merge(df_metro, df_pop_2022_filtered, left_on='parent_metro_region_metro_code', right_on='CBSA', how='left')
+
+print(merged_df[['parent_metro_region_metro_code', 'CBSA']])
 
 
 

@@ -21,4 +21,16 @@ city, state, price_drops_yoy, price_drops_mom, & price_drops are all over 50% nu
 
   
 **for all numeric variables, plot a single correlation matrix**  
-Add Notes
+
+![Correlation Matrix.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2FCorrelation%20Matrix.png)  
+  
+**for all categorical variables, plot a bar chart**  
+  
+![is_seasonally_adjusted_bar.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2Fis_seasonally_adjusted_bar.png)  
+![property_type_bar.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2Fproperty_type_bar.png)  
+![region_type_bar.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2Fregion_type_bar.png)  
+![stat_code_bar.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2Fstat_code_bar.png)  
+  
+**for a pair of numeric variables, plot a scatter plot.**  
+![mediansaleprice_inventory_scatter.png](..%2F..%2F..%2FPictures%2FReal%20Estate%20Results%2Fmediansaleprice_inventory_scatter.png)
+It seems as though supply is concentrated in the single family and condo property types. There also seems to be very little supply in the multi-family property type but they typically have a higher median sales price. The s
