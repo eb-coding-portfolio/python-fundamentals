@@ -39,10 +39,10 @@ top_5.to_csv(r'C:\Users\Eric C. Balduf\Documents\results3.csv', index=False)
 bottom_5 = df_ranked.tail(5).sort_values(by='Rank', ascending=True)
 bottom_5.to_csv(r'C:\Users\Eric C. Balduf\Documents\results4.csv', index=False)
 
-df_plot = pd.concat([top_5, bottom_5])
+df_plot = pd.concat([top_5, bottom_5]).drop_duplicates()
 df_plot = df_plot.sort_values(by='Rank', ascending=False)
 cmap = plt.get_cmap('summer')
-bar_colors = cmap(df_plot['median_sale_price_yoy'] / df_plot['median_sale_price_yoy'].max())  # Scale colors based on values
+bar_colors = cmap(df_plot[metric] / df_plot[metric].max())  # Scale colors based on values
 
 plt.barh(df_plot['region'], df_plot[metric], color=bar_colors)
 for i, value in enumerate(df_plot[metric]):
