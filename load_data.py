@@ -99,6 +99,7 @@ def create_table(conn, table_name):
     column_definitions_str = ', '.join([f'{column} {column_definitions[column]}' for column in column_definitions])
 
     query = f'CREATE TABLE {table_name} ({column_definitions_str})'
+    conn.commit()
     conn.execute(query)
 
 
