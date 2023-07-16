@@ -12,30 +12,28 @@ def create_layout(app: Dash, data: pd.DataFrame):
         by=['state_code', 'region'])
 
     # callbacks
-    @app.callback(
-        Output(ui_ids.REGION_DROP, 'options'),
-        Input(ui_ids.STATE_CODE_DROP, 'value'),
-        Input('data-filters-store', 'data')
-    )
-    def update_region_options(selected_state_code, data_filters_region):
-        data_filters_region = pd.DataFrame(data_filters_region)
-        filtered_regions = data_filters_region[data_filters_region['state_code'] == selected_state_code][
-            'region'].unique()
-        options = [{'label': region, 'value': region} for region in filtered_regions]
-        print("Updated options:", options)
-        return options
+    # @app.callback(
+    #     Output(ui_ids.REGION_DROP, 'options'),
+    #     Input(ui_ids.STATE_CODE_DROP, 'value'),
+    #     Input('data-filters-store', 'data')
+    # )
+    # def update_region_options(selected_state_code, data_filters_region):
+    #     data_filters_region = pd.DataFrame(data_filters_region)
+    #     filtered_regions = data_filters_region[data_filters_region['state_code'] == selected_state_code][
+    #         'region'].unique()
+    #     options = [{'label': region, 'value': region} for region in filtered_regions]
+    #     print("Updated options:", options)
+    #     return options
 
     @app.callback(
         Output(ui_ids.PROPERTY_TYPE_DROP, 'options'),
         Input(ui_ids.STATE_CODE_DROP, 'value'),
-        Input(ui_ids.REGION_DROP, 'value'),
         Input('data-filters-store', 'data')
     )
-    def update_property_type_options(selected_state_code, selected_region, data_filters_prop_type):
+    def update_property_type_options(selected_state_code, data_filters_prop_type):
         data_filters_prop_type = pd.DataFrame(data_filters_prop_type)
         filtered_property_types = data_filters_prop_type[
-            (data_filters_prop_type['state_code'] == selected_state_code) & (
-                    data_filters_prop_type['region'] == selected_region)
+            (data_filters_prop_type['state_code'] == selected_state_code)
             ]['property_type'].unique()
         options = [{'label': prop_type, 'value': prop_type} for prop_type in filtered_property_types]
         print("Updated options:", options)
@@ -44,18 +42,15 @@ def create_layout(app: Dash, data: pd.DataFrame):
     @app.callback(
         Output(ui_ids.TOP_N_CHART, 'figure'),
         Input(ui_ids.STATE_CODE_DROP, 'value'),
-        Input(ui_ids.REGION_DROP, 'value'),
         Input(ui_ids.METRIC_DROP, 'value'),
         Input(ui_ids.PROPERTY_TYPE_DROP, 'value'),
-       # Input('data-full', 'data')
     )
-    def update_bar_chart(selected_state_code, selected_region, selected_metric, selected_property_type):
+    def update_bar_chart(selected_state_code, selected_metric, selected_property_type):
         bar_df = pd.DataFrame(data)
         max_date = get_stat_val(bar_df, 'period_end', 'max')
         filtered_df = bar_df.loc[(bar_df['period_end'] == max_date) &
                                  (bar_df['state_code'] == selected_state_code) &
-                                 (bar_df['property_type'] == selected_property_type) &
-                                 (bar_df['region'] == selected_region), ['region', selected_metric]]
+                                 (bar_df['property_type'] == selected_property_type), ['region', selected_metric]]
 
         plot_dataframe = rank(filtered_df, 5, selected_metric)
 
@@ -68,7 +63,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
             html.H1(app.title),
             html.Hr(),
             dcc.Store(id='data-filters-store', data=data_filters.to_dict('records')),
-            #dcc.Store(id='data-full', data=data.to_dict('records')),
+            # dcc.Store(id='data-full', data=data.to_dict('records')),
             html.Div(
                 className='dropdown-container',
                 children=[
@@ -84,14 +79,14 @@ def create_layout(app: Dash, data: pd.DataFrame):
                         multi=False,
                         placeholder='Select a two-digit state code',
                     ),
-                    html.H6('Region'),
-                    dcc.Dropdown(
-                        id=ui_ids.REGION_DROP,
-                        options=[],
-                        style={"width": "300px", "font-size": "16px"},
-                        multi=False,
-                        placeholder='Select a region',
-                    ),
+                    # html.H6('Region'),
+                    # dcc.Dropdown(
+                    #     id=ui_ids.REGION_DROP,
+                    #     options=[],
+                    #     style={"width": "300px", "font-size": "16px"},
+                    #     multi=False,
+                    #     placeholder='Select a region',
+                    # ),
                     html.H6('Property Type'),
                     dcc.Dropdown(
                         id=ui_ids.PROPERTY_TYPE_DROP,
