@@ -1,3 +1,4 @@
 file_to_ignore.txt 
 market_tracker.db 
 .idea/ 
+*. pyc
