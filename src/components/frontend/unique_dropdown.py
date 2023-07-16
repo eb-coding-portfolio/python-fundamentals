@@ -1,7 +1,7 @@
 import pandas as pd
 from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
-from . import ui_ids
+from src.components.frontend import ui_ids
 
 
 def state_code_render(app: Dash, data: pd.DataFrame):
