@@ -13,3 +13,11 @@ metric_list = [
     'avg_sale_to_list',
     'avg_sale_to_list_yoy'
 ]
+
+percentage_metric_list = [
+    'median_sale_price_yoy',
+    'median_list_price_yoy',
+    'homes_sold_yoy',
+    'median_dom_yoy',
+    'avg_sale_to_list_yoy'
+]
