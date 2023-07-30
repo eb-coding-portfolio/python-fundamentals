@@ -13,7 +13,15 @@ from config import percentage_metric_list
 if __name__ == "__main__":
     conn = sqlite3.connect('market_tracker.db')
     cursor = conn.cursor()
-    query = f"SELECT * FROM {ld.table_names['metro']}"
+    query = f"""
+
+               SELECT * FROM {ld.table_names['metro']}
+               UNION ALL 
+               SELECT * FROM {ld.table_names['state']}
+               UNION ALL 
+               SELECT * FROM {ld.table_names['national']}
+
+               """
     data = pd.read_sql_query(query, conn)
     external_stylesheets = ['https://bootswatch.com/5/litera/bootstrap.css', 'custom.css']
     app = Dash(__name__, external_stylesheets=external_stylesheets)
@@ -50,7 +58,7 @@ if __name__ == "__main__":
                                      (bar_df['state_code'] == selected_state_code) &
                                      (bar_df['property_type'] == selected_property_type) &
                                      bar_df[selected_metric].notna(),
-                                     ['region', selected_metric]]
+            ['region', selected_metric]]
         else:
             print(f"The selected metric '{selected_metric}' does not exist in the DataFrame.")
             filtered_df = pd.DataFrame()  # Return an empty DataFrame

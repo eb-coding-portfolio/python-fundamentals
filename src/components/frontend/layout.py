@@ -35,7 +35,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
                             for state_code in data_filters['state_code'].unique()
                         ],
                         style={"width": "300px", "font-size": "16px"},
-                        value=data_filters['state_code'].unique()[0],
+                        value='CA',
                         multi=False,
                         placeholder='Select a two-digit state code',
                         className='custom-dropdown'
@@ -53,6 +53,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
                         id=ui_ids.PROPERTY_TYPE_DROP,
                         options=[],
                         style={"width": "300px", "font-size": "16px"},
+                        value='All Residential',
                         multi=False,
                         placeholder='Select a property type',
                         className='custom-dropdown'
@@ -65,7 +66,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
                             for metric in metric_list
                         ],
                         style={"width": "300px", "font-size": "16px"},
-                        value=metric_list,
+                        value='median_sale_price_yoy',
                         multi=False,
                         placeholder='Select a metric',
                         className='custom-dropdown'

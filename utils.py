@@ -1,6 +1,6 @@
 import pandas as pd
 import sqlite3
-import load_data as l
+import load_data as ld
 
 
 def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
@@ -52,24 +52,23 @@ def convert_to_percent(df: pd.DataFrame, column_name: str):
 
 
 if __name__ == "__main__":
-    data = {
-        'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
-        'Decimal_Column': [0.25, 0.5, 0.75, 0.1, 0.9],
-        'Non_Numeric_Column': ['A', 'B', 'C', 'D', 'E'],
-        'Age': [21, 20, 22, 19, 20]
-    }
-    df = pd.DataFrame(data)
-    try:
-        # Test with the 'Decimal_Column'
-        converted_df = convert_to_percent(df, 'Decimal_Column')
-        print("\nDataFrame with 'Decimal_Column' converted to percent:")
-        print(converted_df)
 
-        # Test with the 'Non_Numeric_Column' (should raise a ValueError)
-        converted_df = convert_to_percent(df, 'Non_Numeric_Column')
+    conn = sqlite3.connect('market_tracker.db')
+    cursor = conn.cursor()
+    query = f"""
 
-    except ValueError as e:
-        print("\nError:", e)
+            SELECT * FROM {ld.table_names['metro']}
+            UNION ALL 
+            SELECT * FROM {ld.table_names['state']}
+            UNION ALL 
+            SELECT * FROM {ld.table_names['national']}
+            
+            """
+    print(query)
+    data = pd.read_sql_query(query, conn)
+    print(data['region_type'].unique())
+    print(data.groupby('region_type').count())
+
 
     # conn = sqlite3.connect('market_tracker.db')
     # cursor = conn.cursor()

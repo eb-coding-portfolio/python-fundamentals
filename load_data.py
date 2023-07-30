@@ -108,6 +108,7 @@ def load_data(conn, table_name, dataset):
     placeholders = ', '.join(['?' for _ in dataset.columns])
     query = f'INSERT INTO {table_name} ({columns}) VALUES ({placeholders})'
     conn.executemany(query, dataset.values.tolist())
+    conn.commit() ##added on 7.30.2023
 
 def test_queries(conn, name):
     # Create a cursor object
@@ -125,6 +126,7 @@ def main():
 
     for region_type, table_name in table_names.items():
         region_data = dataset[dataset['region_type'] == region_type]
+        print(f"Number of rows for {region_type}: {len(region_data)}")
         create_table(conn, table_name)
         load_data(conn, table_name, region_data)
 
