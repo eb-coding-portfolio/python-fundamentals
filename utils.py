@@ -1,17 +1,17 @@
 import pandas as pd
 import sqlite3
 import load_data as ld
-
+from config import metric_list
 
 def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
     if column in ('period_end', 'period_begin'):
         input_dataframe[column] = pd.to_datetime(input_dataframe[column])
 
     column_stats = input_dataframe[column].describe()
-    print(column_stats)
-    value = column_stats[stat]
-    return value
 
+    value = column_stats[stat]
+
+    return value
 
 def rank(df: pd.DataFrame, rank_num: int, metric: str):
     df['Rank'] = df[metric].rank(ascending=False)
@@ -64,11 +64,13 @@ if __name__ == "__main__":
             SELECT * FROM {ld.table_names['national']}
             
             """
-    print(query)
-    data = pd.read_sql_query(query, conn)
-    print(data['region_type'].unique())
-    print(data.groupby('region_type').count())
+    state_code = 'CA'
 
+    data = pd.read_sql_query(query, conn)
+    max_date = get_stat_val(data, 'period_end', 'max')
+    us_data = data[data['region_type'] == 'national']
+    state_data = data[data['region_type'] == 'state']
+    metro_data = data[data['region_type'] == 'metro']
 
     # conn = sqlite3.connect('market_tracker.db')
     # cursor = conn.cursor()

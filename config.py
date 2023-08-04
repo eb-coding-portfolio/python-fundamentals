@@ -8,6 +8,7 @@ metric_list = [
     'pending_sales',
     'new_listings',
     'inventory',
+    'inventory_yoy',
     'median_dom',
     'median_dom_yoy',
     'avg_sale_to_list',

@@ -4,9 +4,7 @@ from src.components.frontend import ui_ids
 from config import metric_list
 
 
-def create_layout(app: Dash, data: pd.DataFrame):
-    data_filters = data[['state_code', 'region', 'property_type']].drop_duplicates().sort_values(
-        by=['state_code', 'region'])
+def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
 
     return html.Div(
         className='app-Div',
@@ -22,24 +20,22 @@ def create_layout(app: Dash, data: pd.DataFrame):
                     html.Hr(),
                 ],
             ),
-            dcc.Store(id='data-filters-store', data=data_filters.to_dict('records')),
-            # dcc.Store(id='data-full', data=data.to_dict('records')),
             html.Div(
                 className='dropdown-container',
                 children=[
-                    html.H6('State Code'),
-                    dcc.Dropdown(
-                        id=ui_ids.STATE_CODE_DROP,
-                        options=[
-                            {"label": state_code, "value": state_code}
-                            for state_code in data_filters['state_code'].unique()
-                        ],
-                        style={"width": "300px", "font-size": "16px"},
-                        value='CA',
-                        multi=False,
-                        placeholder='Select a two-digit state code',
-                        className='custom-dropdown'
-                    ),
+                    # html.H6('State Code'),
+                    # dcc.Dropdown(
+                    #     id=ui_ids.STATE_CODE_DROP,
+                    #     options=[
+                    #         {"label": state_code, "value": state_code}
+                    #         for state_code in data_filters['state_code'].unique()
+                    #     ],
+                    #     style={"width": "300px", "font-size": "16px"},
+                    #     value='CA',
+                    #     multi=False,
+                    #     placeholder='Select a two-digit state code',
+                    #     className='custom-dropdown'
+                    # ),
                     # html.H6('Region'),
                     # dcc.Dropdown(
                     #     id=ui_ids.REGION_DROP,
@@ -51,7 +47,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
                     html.H6('Property Type'),
                     dcc.Dropdown(
                         id=ui_ids.PROPERTY_TYPE_DROP,
-                        options=[],
+                        options=prop_type_options,
                         style={"width": "300px", "font-size": "16px"},
                         value='All Residential',
                         multi=False,
@@ -78,7 +74,7 @@ def create_layout(app: Dash, data: pd.DataFrame):
                 children=[
                     # Wrap the plot and the caption in a new html.Div
                     html.Div([
-                        dcc.Graph(id=ui_ids.TOP_N_CHART),
+                        dcc.Graph(id=ui_ids.US_MAP),
                         html.P("Data provided by Redfin, a national real estate brokerage.", className='caption-text')
                     ], className='chart-container'),
                 ],
