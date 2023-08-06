@@ -1,7 +1,8 @@
 import pandas as pd
 import sqlite3
 import load_data as ld
-from config import metric_list
+from config import table_columns, percentage_metric_list
+
 
 def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
     if column in ('period_end', 'period_begin'):
@@ -12,6 +13,7 @@ def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
     value = column_stats[stat]
 
     return value
+
 
 def rank(df: pd.DataFrame, rank_num: int, metric: str):
     df['Rank'] = df[metric].rank(ascending=False)
@@ -51,8 +53,49 @@ def convert_to_percent(df: pd.DataFrame, column_name: str):
     return converted_df
 
 
-if __name__ == "__main__":
+def create_stats_table(data, state_code, property_type):
 
+    metric_list = [column for column in table_columns if 'yoy' in column]
+
+    max_date = get_stat_val(data, 'period_end', 'max')
+
+    us_data = data[(data['region_type'] == 'national') &
+                   (data['period_end'] == max_date) &
+                   (data['property_type'] == property_type)][table_columns]
+    state_data = data[(data['region_type'] == 'state') &
+                      (data['state_code'] == state_code) &
+                      (data['period_end'] == max_date) &
+                      (data['property_type'] == property_type)][table_columns]
+
+    top_metro = data[(data['region_type'] == 'metro') &
+                     (data['state_code'] == state_code) &
+                     (data['period_end'] == max_date) &
+                     (data['property_type'] == property_type)]['region'].sort_values().iloc[0]
+
+    metro_data = data[(data['region_type'] == 'metro') &
+                      (data['state_code'] == state_code) &
+                      (data['region'] == top_metro) &
+                      (data['period_end'] == max_date) &
+                      (data['property_type'] == property_type)][table_columns]
+
+
+    us_data_filtered = us_data[metric_list]
+    state_data_filtered = state_data[metric_list]
+    metro_data_filtered = metro_data[metric_list]
+
+    state_diff = (state_data_filtered - us_data_filtered.values)
+    metro_diff = (metro_data_filtered - state_data_filtered.values)
+
+    # Concatenate the original data with the calculated differences
+    result = pd.concat([us_data, state_data, state_diff, metro_data, metro_diff])
+
+    # Reset the index for proper ordering
+    result = result.reset_index(drop=True)
+
+    return result
+
+
+if __name__ == "__main__":
     conn = sqlite3.connect('market_tracker.db')
     cursor = conn.cursor()
     query = f"""
@@ -64,13 +107,11 @@ if __name__ == "__main__":
             SELECT * FROM {ld.table_names['national']}
             
             """
-    state_code = 'CA'
-
     data = pd.read_sql_query(query, conn)
-    max_date = get_stat_val(data, 'period_end', 'max')
-    us_data = data[data['region_type'] == 'national']
-    state_data = data[data['region_type'] == 'state']
-    metro_data = data[data['region_type'] == 'metro']
+    state_code = 'CA'
+    property_type = 'All Residential'  # replace with the desired property type
+    result = create_stats_table(data, state_code, property_type)
+    result.to_csv(r'C:\Users\Eric C. Balduf\Documents\tabel_test.csv')
 
     # conn = sqlite3.connect('market_tracker.db')
     # cursor = conn.cursor()

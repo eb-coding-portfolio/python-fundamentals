@@ -39,3 +39,13 @@ body {
   color: #888888; /* Set the text color for the caption text (adjust as needed) */
   font-style: italic; /* Set the font style to italic */
 }
+
+/* Region drop down padding */
+.padded-dropdown {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+

@@ -1,4 +1,4 @@
-from dash import Dash
+from dash import Dash, no_update, dash_table
 from dash_bootstrap_components.themes import MATERIA, QUARTZ, COSMO, LITERA
 import sqlite3
 import pandas as pd
@@ -6,7 +6,7 @@ import load_data as ld
 from src.components.frontend.layout import create_layout
 from dash.dependencies import Input, Output
 import plotly.express as px
-from utils import get_stat_val, rank, convert_to_percent
+from utils import get_stat_val, create_stats_table
 from src.components.frontend import ui_ids
 from config import percentage_metric_list
 
@@ -71,6 +71,34 @@ if __name__ == "__main__":
         fig.update_coloraxes(colorbar_tickformat=tickformat)
         return fig
 
+    @app.callback(
+        Output(ui_ids.HOUSING_TABLE_ID, 'data'),
+        Output(ui_ids.HOUSING_TABLE_ID, 'columns'),
+        Input(ui_ids.US_MAP, 'clickData'),
+        Input(ui_ids.PROPERTY_TYPE_DROP, 'value'),
+    )
+    def update_table(clickData, selected_property_type_table):
+        print(clickData)
+        if clickData is None:
+            # If no state has been clicked, don't update the table.
+            state_code = 'CA'
+        else:
+            # Extract the state code from the clicked data.
+            state_code = clickData['points'][0]['location']
+            print(f'this is the extracted state code: {state_code}')
+
+        # Call your create_table function to get the DataFrame.
+        df = create_stats_table(data, state_code, selected_property_type_table)
+        df['period_end'] = df['period_end'].dt.strftime('%Y-%m-%d')
+
+        # Convert the DataFrame to the data and columns needed for the DataTable.
+        table_data = df.to_dict('records')
+
+        table_columns = [{"name": i, "id": i, 'type': 'numeric', 'format': {'specifier': '.2%'}}
+                         if i in percentage_metric_list else {"name": i, "id": i} for i in df.columns]
+        # Return the data and columns to be used in the DataTable component in the layout.
+
+        return table_data, table_columns
 
     app.title = "purlieu"
     app.layout = create_layout(app, data, prop_type_options)

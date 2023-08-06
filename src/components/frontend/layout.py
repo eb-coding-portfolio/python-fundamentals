@@ -1,7 +1,7 @@
 import pandas as pd
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, dash_table
 from src.components.frontend import ui_ids
-from config import metric_list
+from config import metric_list, table_columns
 
 
 def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
@@ -23,27 +23,6 @@ def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
             html.Div(
                 className='dropdown-container',
                 children=[
-                    # html.H6('State Code'),
-                    # dcc.Dropdown(
-                    #     id=ui_ids.STATE_CODE_DROP,
-                    #     options=[
-                    #         {"label": state_code, "value": state_code}
-                    #         for state_code in data_filters['state_code'].unique()
-                    #     ],
-                    #     style={"width": "300px", "font-size": "16px"},
-                    #     value='CA',
-                    #     multi=False,
-                    #     placeholder='Select a two-digit state code',
-                    #     className='custom-dropdown'
-                    # ),
-                    # html.H6('Region'),
-                    # dcc.Dropdown(
-                    #     id=ui_ids.REGION_DROP,
-                    #     options=[],
-                    #     style={"width": "300px", "font-size": "16px"},
-                    #     multi=False,
-                    #     placeholder='Select a region',
-                    # ),
                     html.H6('Property Type'),
                     dcc.Dropdown(
                         id=ui_ids.PROPERTY_TYPE_DROP,
@@ -79,5 +58,50 @@ def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
                     ], className='chart-container'),
                 ],
             ),
+            html.Div(
+                className='dropdown-container padded-dropdown',
+                children=[
+                    html.H6('Region'),
+                    dcc.Dropdown(
+                        id=ui_ids.REGION_DROP,
+                        options=[],
+                        style={"width": "300px", "font-size": "16px"},
+                        multi=False,
+                        placeholder='Select a region',
+                    ),
+                ],
+            ),
+            html.Div(
+                className='table-container',
+                children=[
+                    dash_table.DataTable(
+                        id=ui_ids.HOUSING_TABLE_ID,
+                        columns=[],
+                        data=[],
+                        style_data_conditional=[
+                            {
+                                'if': {'column_id': 'median_sale_price_yoy'},
+                                'format': {'specifier': '.1%'}
+                            },
+                            {
+                                'if': {'column_id': 'median_list_price_yoy'},
+                                'format': {'specifier': '.1%'}
+                            },
+                            {
+                                'if': {'column_id': 'homes_sold_yoy'},
+                                'format': {'specifier': '.1%'}
+                            },
+                            {
+                                'if': {'column_id': 'inventory_yoy'},
+                                'format': {'specifier': '.1%'}
+                            },
+                            {
+                                'if': {'column_id': 'avg_sale_to_list_yoy'},
+                                'format': {'specifier': '.1%'}
+                            }
+                        ]
+                    ),
+                ],
+            )
         ],
     )
