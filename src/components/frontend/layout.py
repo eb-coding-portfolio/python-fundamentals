@@ -5,7 +5,6 @@ from config import metric_list, table_columns
 
 
 def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
-
     return html.Div(
         className='app-Div',
         children=[
@@ -58,21 +57,30 @@ def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
                     ], className='chart-container'),
                 ],
             ),
-            html.Div([
-                dcc.RadioItems(
-                    id=ui_ids.SELECT_COMP,
-                    options=[
-                        {'label': 'State', 'value': 'state'},
-                        {'label': 'National', 'value': 'national'}
-                    ],
-                    value='state',
-                    labelStyle={'display': 'block'}
-                ),
-                html.Button('Previous', id=ui_ids.BTN_PREV, n_clicks=0),
-                html.Button('Next', id=ui_ids.BTN_NXT, n_clicks=0),
-                html.Div(id=ui_ids.DIV_PGNUM, style={'display': 'none'}, children=1),
-                dcc.Graph(id=ui_ids.HOUSING_TABLE_ID)
-            ]
+            html.Div(
+                className='heat-map-container-components',
+                children=[
+                    dcc.RadioItems(
+                        id=ui_ids.SELECT_COMP,
+                        options=[
+                            {'label': 'State', 'value': 'state'},
+                            {'label': 'National', 'value': 'national'}
+                        ],
+                        value='state',
+                        labelStyle={'display': 'block'}
+                    ),
+                    html.Button('Previous', id=ui_ids.BTN_PREV, n_clicks=0),
+                    html.Button('Next', id=ui_ids.BTN_NXT, n_clicks=0),
+                    html.Div(id=ui_ids.DIV_PGNUM, style={'display': 'none'}, children=1),
+
+                ]
+
+            ),
+            html.Div(
+                className='heat-map-container',
+                children=[
+                    dcc.Graph(id=ui_ids.HOUSING_TABLE_ID, style={"height": "70vh"})
+                ], style={"display": "flex", "flexDirection": "column", "height": "80vh"}
             )
         ],
     )

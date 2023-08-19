@@ -33,6 +33,5 @@ table_columns = [
     'median_list_price_yoy',
     'homes_sold_yoy',
     'inventory_yoy',
-    'median_dom_yoy',
     'avg_sale_to_list_yoy'
 ]

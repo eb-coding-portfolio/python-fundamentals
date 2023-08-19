@@ -1,4 +1,4 @@
-from dash import Dash, no_update, dash_table
+from dash import Dash, no_update, dash_table, callback_context
 from dash_bootstrap_components.themes import MATERIA, QUARTZ, COSMO, LITERA
 import sqlite3
 import pandas as pd
@@ -6,9 +6,10 @@ import load_data as ld
 from src.components.frontend.layout import create_layout
 from dash.dependencies import Input, Output, State
 import plotly.express as px
-from utils import get_stat_val, calculate_differences
+from utils import get_stat_val, calculate_differences, add_heatmap_annotations
 from src.components.frontend import ui_ids
 from config import percentage_metric_list, table_columns
+import numpy as np
 
 if __name__ == "__main__":
     conn = sqlite3.connect('market_tracker.db')
@@ -28,19 +29,6 @@ if __name__ == "__main__":
     data_filters_prop_type = data['property_type'].unique()
     prop_type_options = [{'label': prop_type, 'value': prop_type} for prop_type in data_filters_prop_type]
 
-    # callbacks
-    # @app.callback(
-    #     Output(ui_ids.PROPERTY_TYPE_DROP, 'options'),
-    #     Input(ui_ids.STATE_CODE_DROP, 'value'),
-    #     # Input('data-filters-store', 'data')
-    # )
-    # def update_property_type_options( data_filters_prop_type):
-    #     data_filters_prop_type = data['property_type'].unique()
-    #     options = [{'label': prop_type, 'value': prop_type} for prop_type in data_filters_prop_type]
-    #     print("Updated options:", options)
-    #     return options
-
-
     @app.callback(
         Output(ui_ids.US_MAP, 'figure'),
         Input(ui_ids.METRIC_DROP, 'value'),
@@ -53,7 +41,8 @@ if __name__ == "__main__":
 
         map_df = map_input_df[(map_input_df['period_end'] == max_date) &
                               (map_input_df['region_type'] == 'state') &
-                              (map_input_df['property_type'] == selected_property_type)][['state_code', selected_metric]]
+                              (map_input_df['property_type'] == selected_property_type)][
+            ['state_code', selected_metric]]
 
         if selected_metric in percentage_metric_list:
             hover_data = {selected_metric: ':.2%'}
@@ -84,36 +73,68 @@ if __name__ == "__main__":
     )
     def update_heatmap(compare_to, prev_clicks, next_clicks, heat_map_prop_type, clickData, current_page):
         metric_list = [column for column in table_columns if 'yoy' in column]
+        print(clickData)
         if clickData is None:
             # If no state has been clicked, don't update the table.
             state_code = 'CA'
         else:
-            try:
-                # Extract the state code from the clicked data.
-                state_code = clickData['points'][0]['location']
-                print(f'this is the extracted state code: {state_code}')
-            except Exception as e:
-                print(f"Error: {e}")
-                print("Problematic ClickData:", clickData)
-                state_code = 'CA'  # Default value in case of an error
-        print(f'Passed into function: {state_code}')
-        heat_map_data = calculate_differences(data, state_code, heat_map_prop_type, compare_to)
+            state_code = clickData['points'][0]['location']
 
-        new_page = current_page + (next_clicks - prev_clicks)
+        heat_map_data = calculate_differences(data, state_code, heat_map_prop_type, compare_to)
+        heat_map_data.to_csv(r'C:\Users\Eric C. Balduf\Documents\heat_map_data.csv')
+
+        ctx = callback_context
+        if not ctx.triggered:
+            button_id = 'No clicks yet'
+        else:
+            button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+
+        if button_id == ui_ids.BTN_NXT:
+            new_page = current_page + 1
+        elif button_id == ui_ids.BTN_PREV:
+            new_page = current_page - 1
+        else:
+            new_page = current_page
+        total_pages = -(-len(heat_map_data) // 10)  # Ceiling division
+
+        if new_page > total_pages:
+            new_page = total_pages
+        elif new_page < 1:
+            new_page = 1
+
         # Paginate the data
         start_idx = (new_page - 1) * 10
         end_idx = start_idx + 10
         paginated_differences = heat_map_data[start_idx:end_idx]
+
+        paginated_differences.to_csv(r'C:\Users\Eric C. Balduf\Documents\paginated_differences.csv')
         paginated_differences_filtered = paginated_differences[metric_list]
+        paginated_differences_filtered.to_csv(r'C:\Users\Eric C. Balduf\Documents\paginated_differences_filtered.csv')
+
+        paginated_differences_filtered_percentile = paginated_differences_filtered.fillna(0)
+
+        # Extract the desired percentiles
+        desired_percentiles = [5, 25, 50, 75]
+        percentiles = [np.percentile(paginated_differences_filtered_percentile.values, p) for p in desired_percentiles]
+
         fig = px.imshow(
-            paginated_differences_filtered,  # This should be a matrix of differences
+            paginated_differences_filtered,
             labels=dict(x="Metrics", y="Metros", color="Difference"),
-            x=metric_list,  # List of metrics
-            y=paginated_differences['region'].tolist(),  # List of metros
-            color_continuous_scale='deep'
+            x=metric_list,
+            y=paginated_differences['region'].tolist(),
+            color_continuous_scale='deep',
+            range_color=[percentiles[0], percentiles[-1]]
         )
 
-        return fig, new_page
+        fig_metrics_added = add_heatmap_annotations(fig, paginated_differences_filtered)
+
+        fig_metrics_added.update_layout(width=2000, height=800)
+        fig_metrics_added.update_layout(coloraxis_colorbar=dict(
+            tickvals=percentiles,
+            ticktext=[f"{p * 100:.2f}%" for p in percentiles]
+        ))
+        return fig_metrics_added, new_page
+
 
     app.title = "purlieu"
     app.layout = create_layout(app, data, prop_type_options)

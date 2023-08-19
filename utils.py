@@ -2,7 +2,7 @@ import pandas as pd
 import sqlite3
 import load_data as ld
 from config import table_columns, percentage_metric_list
-
+import numpy as np
 
 def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
     if column in ('period_end', 'period_begin'):
@@ -95,6 +95,40 @@ def calculate_differences(df, state_code, property_type, compare_to):
     diff_df = diff_df.dropna(subset=metric_list, how='all')
 
     return diff_df
+
+
+def add_heatmap_annotations(fig, data):
+    """
+    Adds annotations (text) to the heatmap cells.
+
+    Parameters:
+    - fig: The figure object to which annotations are added.
+    - data: The data used to generate the heatmap.
+    """
+    annotations = []
+    for y in range(data.shape[0]):
+        for x in range(data.shape[1]):
+            value = data.iloc[y, x]
+            # Convert the number to a percentage and format it only if the value is not NaN
+            percentage_text = f"{value * 100:.2f}%" if not np.isnan(value) else ""
+
+            annotations.append(
+                dict(
+                    x=x,
+                    y=y,
+                    xref='x',
+                    yref='y',
+                    text=percentage_text,
+                    showarrow=False,
+                    font=dict(
+                        family="Arial",
+                        size=10,
+                        color="black"
+                    )
+                )
+            )
+    fig.update_layout(annotations=annotations)
+    return fig
 
 
 if __name__ == "__main__":
