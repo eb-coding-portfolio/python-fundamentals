@@ -13,3 +13,10 @@ COL_MLP_YOY = 'mlp-yoy'
 COL_HS_YOY = 'hs-yoy'
 COL_INV_YOY = 'inv-yoy'
 COL_ASTL_YOY = 'astl-yoy'
+
+SELECT_COMP = 'compare-to-selector'
+
+BTN_PREV = 'prev-button'
+BTN_NXT = 'next-button'
+
+DIV_PGNUM = 'page-number'

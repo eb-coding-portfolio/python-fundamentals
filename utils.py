@@ -53,46 +53,48 @@ def convert_to_percent(df: pd.DataFrame, column_name: str):
     return converted_df
 
 
-def create_stats_table(data, state_code, property_type):
-
+def calculate_differences(df, state_code, property_type, compare_to):
     metric_list = [column for column in table_columns if 'yoy' in column]
+    # Step 1: Filter the dataframe
+    max_date = get_stat_val(df, 'period_end', 'max')
+    # Step 1: Filter the dataframe by max_date and property_type
+    filtered_df_by_date_and_property = df[
+        (df['period_end'] == max_date) &
+        (df['property_type'] == property_type)
+        ]
 
-    max_date = get_stat_val(data, 'period_end', 'max')
+    # Step 2: Further filter by state_code and region_type
+    filtered_df = filtered_df_by_date_and_property[
+        ((filtered_df_by_date_and_property['region_type'].isin(['metro', 'state']) &
+          (filtered_df_by_date_and_property['state_code'] == state_code)) |
+         (filtered_df_by_date_and_property['region_type'] == 'national'))
+    ]
+    # Step 2: Determine the reference row
+    if compare_to == 'state':
+        reference_rows = filtered_df[filtered_df['region_type'] == 'state'].iloc[0]
+    else:  # Assuming 'national' is the only other option
+        reference_rows = filtered_df[filtered_df['region_type'] == 'national'].iloc[0]
 
-    us_data = data[(data['region_type'] == 'national') &
-                   (data['period_end'] == max_date) &
-                   (data['property_type'] == property_type)][table_columns]
-    state_data = data[(data['region_type'] == 'state') &
-                      (data['state_code'] == state_code) &
-                      (data['period_end'] == max_date) &
-                      (data['property_type'] == property_type)][table_columns]
+    # Step 3: Calculate the differences
+    differences = []
+    for _, row in filtered_df.iterrows():
+        if row['region_type'] == 'metro':  # We only want to compute differences for metros
+            diff_row = {}
+            diff_row['region'] = row['region']
+            for metric in metric_list:
+                diff_row[metric] = row[metric] - reference_rows[metric]
+            differences.append(diff_row)
 
-    top_metro = data[(data['region_type'] == 'metro') &
-                     (data['state_code'] == state_code) &
-                     (data['period_end'] == max_date) &
-                     (data['property_type'] == property_type)]['region'].sort_values().iloc[0]
+    # Convert differences list of dictionaries to a dataframe
+    diff_df = pd.DataFrame(differences)
 
-    metro_data = data[(data['region_type'] == 'metro') &
-                      (data['state_code'] == state_code) &
-                      (data['region'] == top_metro) &
-                      (data['period_end'] == max_date) &
-                      (data['property_type'] == property_type)][table_columns]
+    # Order the dataframe by 'region' column A-Z
+    diff_df = diff_df.sort_values(by='region')
 
+    # Drop rows where all metric columns have NaN values
+    diff_df = diff_df.dropna(subset=metric_list, how='all')
 
-    us_data_filtered = us_data[metric_list]
-    state_data_filtered = state_data[metric_list]
-    metro_data_filtered = metro_data[metric_list]
-
-    state_diff = (state_data_filtered - us_data_filtered.values)
-    metro_diff = (metro_data_filtered - state_data_filtered.values)
-
-    # Concatenate the original data with the calculated differences
-    result = pd.concat([us_data, state_data, state_diff, metro_data, metro_diff])
-
-    # Reset the index for proper ordering
-    result = result.reset_index(drop=True)
-
-    return result
+    return diff_df
 
 
 if __name__ == "__main__":
@@ -108,10 +110,11 @@ if __name__ == "__main__":
             
             """
     data = pd.read_sql_query(query, conn)
-    state_code = 'CA'
+    state_code = 'TX'
     property_type = 'All Residential'  # replace with the desired property type
-    result = create_stats_table(data, state_code, property_type)
-    result.to_csv(r'C:\Users\Eric C. Balduf\Documents\tabel_test.csv')
+    compare_to = 'national'
+    result = calculate_differences(data, state_code, property_type, compare_to)
+    result.to_csv(r'C:\Users\Eric C. Balduf\Documents\table_test.csv')
 
     # conn = sqlite3.connect('market_tracker.db')
     # cursor = conn.cursor()

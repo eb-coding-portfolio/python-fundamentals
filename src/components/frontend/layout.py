@@ -58,50 +58,21 @@ def create_layout(app: Dash, data: pd.DataFrame, prop_type_options: list):
                     ], className='chart-container'),
                 ],
             ),
-            html.Div(
-                className='dropdown-container padded-dropdown',
-                children=[
-                    html.H6('Region'),
-                    dcc.Dropdown(
-                        id=ui_ids.REGION_DROP,
-                        options=[],
-                        style={"width": "300px", "font-size": "16px"},
-                        multi=False,
-                        placeholder='Select a region',
-                    ),
-                ],
-            ),
-            html.Div(
-                className='table-container',
-                children=[
-                    dash_table.DataTable(
-                        id=ui_ids.HOUSING_TABLE_ID,
-                        columns=[],
-                        data=[],
-                        style_data_conditional=[
-                            {
-                                'if': {'column_id': 'median_sale_price_yoy'},
-                                'format': {'specifier': '.1%'}
-                            },
-                            {
-                                'if': {'column_id': 'median_list_price_yoy'},
-                                'format': {'specifier': '.1%'}
-                            },
-                            {
-                                'if': {'column_id': 'homes_sold_yoy'},
-                                'format': {'specifier': '.1%'}
-                            },
-                            {
-                                'if': {'column_id': 'inventory_yoy'},
-                                'format': {'specifier': '.1%'}
-                            },
-                            {
-                                'if': {'column_id': 'avg_sale_to_list_yoy'},
-                                'format': {'specifier': '.1%'}
-                            }
-                        ]
-                    ),
-                ],
+            html.Div([
+                dcc.RadioItems(
+                    id=ui_ids.SELECT_COMP,
+                    options=[
+                        {'label': 'State', 'value': 'state'},
+                        {'label': 'National', 'value': 'national'}
+                    ],
+                    value='state',
+                    labelStyle={'display': 'block'}
+                ),
+                html.Button('Previous', id=ui_ids.BTN_PREV, n_clicks=0),
+                html.Button('Next', id=ui_ids.BTN_NXT, n_clicks=0),
+                html.Div(id=ui_ids.DIV_PGNUM, style={'display': 'none'}, children=1),
+                dcc.Graph(id=ui_ids.HOUSING_TABLE_ID)
+            ]
             )
         ],
     )

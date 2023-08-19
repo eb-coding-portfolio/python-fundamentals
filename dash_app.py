@@ -4,11 +4,11 @@ import sqlite3
 import pandas as pd
 import load_data as ld
 from src.components.frontend.layout import create_layout
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import plotly.express as px
-from utils import get_stat_val, create_stats_table
+from utils import get_stat_val, calculate_differences
 from src.components.frontend import ui_ids
-from config import percentage_metric_list
+from config import percentage_metric_list, table_columns
 
 if __name__ == "__main__":
     conn = sqlite3.connect('market_tracker.db')
@@ -71,34 +71,49 @@ if __name__ == "__main__":
         fig.update_coloraxes(colorbar_tickformat=tickformat)
         return fig
 
+
     @app.callback(
-        Output(ui_ids.HOUSING_TABLE_ID, 'data'),
-        Output(ui_ids.HOUSING_TABLE_ID, 'columns'),
-        Input(ui_ids.US_MAP, 'clickData'),
+        Output(ui_ids.HOUSING_TABLE_ID, 'figure'),
+        Output(ui_ids.DIV_PGNUM, 'children'),
+        Input(ui_ids.SELECT_COMP, 'value'),
+        Input(ui_ids.BTN_PREV, 'n_clicks'),
+        Input(ui_ids.BTN_NXT, 'n_clicks'),
         Input(ui_ids.PROPERTY_TYPE_DROP, 'value'),
+        Input(ui_ids.US_MAP, 'clickData'),
+        State(ui_ids.DIV_PGNUM, 'children')
     )
-    def update_table(clickData, selected_property_type_table):
-        print(clickData)
+    def update_heatmap(compare_to, prev_clicks, next_clicks, heat_map_prop_type, clickData, current_page):
+        metric_list = [column for column in table_columns if 'yoy' in column]
         if clickData is None:
             # If no state has been clicked, don't update the table.
             state_code = 'CA'
         else:
-            # Extract the state code from the clicked data.
-            state_code = clickData['points'][0]['location']
-            print(f'this is the extracted state code: {state_code}')
+            try:
+                # Extract the state code from the clicked data.
+                state_code = clickData['points'][0]['location']
+                print(f'this is the extracted state code: {state_code}')
+            except Exception as e:
+                print(f"Error: {e}")
+                print("Problematic ClickData:", clickData)
+                state_code = 'CA'  # Default value in case of an error
+        print(f'Passed into function: {state_code}')
+        heat_map_data = calculate_differences(data, state_code, heat_map_prop_type, compare_to)
 
-        # Call your create_table function to get the DataFrame.
-        df = create_stats_table(data, state_code, selected_property_type_table)
-        df['period_end'] = df['period_end'].dt.strftime('%Y-%m-%d')
+        new_page = current_page + (next_clicks - prev_clicks)
+        # Paginate the data
+        start_idx = (new_page - 1) * 10
+        end_idx = start_idx + 10
+        paginated_differences = heat_map_data[start_idx:end_idx]
+        paginated_differences_filtered = paginated_differences[metric_list]
+        fig = px.imshow(
+            paginated_differences_filtered,  # This should be a matrix of differences
+            labels=dict(x="Metrics", y="Metros", color="Difference"),
+            x=metric_list,  # List of metrics
+            y=paginated_differences['region'].tolist(),  # List of metros
+            color_continuous_scale='deep'
+        )
 
-        # Convert the DataFrame to the data and columns needed for the DataTable.
-        table_data = df.to_dict('records')
-
-        table_columns = [{"name": i, "id": i, 'type': 'numeric', 'format': {'specifier': '.2%'}}
-                         if i in percentage_metric_list else {"name": i, "id": i} for i in df.columns]
-        # Return the data and columns to be used in the DataTable component in the layout.
-
-        return table_data, table_columns
+        return fig, new_page
 
     app.title = "purlieu"
     app.layout = create_layout(app, data, prop_type_options)
