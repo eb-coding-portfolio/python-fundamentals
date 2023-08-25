@@ -1,8 +1,5 @@
-from dash import Dash, no_update, dash_table, callback_context
-from dash_bootstrap_components.themes import MATERIA, QUARTZ, COSMO, LITERA
-import sqlite3
+from dash import Dash, callback_context
 import pandas as pd
-import load_data as ld
 from src.components.frontend.layout import create_layout
 from dash.dependencies import Input, Output, State
 import plotly.express as px
@@ -10,20 +7,16 @@ from utils import get_stat_val, calculate_differences, add_heatmap_annotations
 from src.components.frontend import ui_ids
 from config import percentage_metric_list, table_columns
 import numpy as np
+import os
+
+from sqlalchemy import create_engine
 
 if __name__ == "__main__":
-    conn = sqlite3.connect('market_tracker.db')
-    cursor = conn.cursor()
-    query = f"""
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    engine = create_engine(DATABASE_URL)
 
-               SELECT * FROM {ld.table_names['metro']}
-               UNION ALL 
-               SELECT * FROM {ld.table_names['state']}
-               UNION ALL 
-               SELECT * FROM {ld.table_names['national']}
+    data = pd.read_sql('SELECT * FROM market_tracker', engine)
 
-               """
-    data = pd.read_sql_query(query, conn)
     external_stylesheets = ['https://bootswatch.com/5/litera/bootstrap.css', 'custom.css']
     app = Dash(__name__, external_stylesheets=external_stylesheets)
     data_filters_prop_type = data['property_type'].unique()

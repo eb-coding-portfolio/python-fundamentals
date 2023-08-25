@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
-import load_data as ld
-from config import table_columns, percentage_metric_list
+from src.components.backend import load_data as ld
+from config import table_columns
 import numpy as np
 
 def get_stat_val(input_dataframe: pd.DataFrame, column: str, stat: str):
@@ -132,7 +132,7 @@ def add_heatmap_annotations(fig, data):
 
 
 if __name__ == "__main__":
-    conn = sqlite3.connect('market_tracker.db')
+    conn = sqlite3.connect('src/components/backend/market_tracker.db')
     cursor = conn.cursor()
     query = f"""
 
